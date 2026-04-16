@@ -43,7 +43,6 @@
                             <th>Name</th>
                             <th>Ket.</th>
                             <th>Date</th>
-                            <th>Due Date</th>
                             <th>Returned</th>
                             <th>Edited By</th>
                             <th>Action</th>
@@ -60,12 +59,12 @@
                                 <td>{{ $lending->borrower_name }}</td>
                                 <td>{{ $lending->description }}</td>
                                 
-                                <td>{{ $lending->created_at->format('d F, Y') }}</td>
-                                <td>
+                                <td>{{ now('Asia/Jakarta')->format('d F, Y H:i') }}</td>
+                                {{-- <td>
             <span class="{{ $lending->status == 'borrowed' && $lending->due_date < date('Y-m-d') ? 'text-danger fw-bold' : '' }}">
-                {{ \Carbon\Carbon::parse($lending->due_date)->format('d F, Y') }}
+                {{ now('Asia/Jakarta')->format('d F, Y H:i') }}
             </span>
-        </td>
+        </td> --}}
                                 
                                 <td>
                                     @if($lending->status == 'returned')
@@ -90,11 +89,11 @@
                                         </form>
                                     @endif
 
-                                    <form action="{{ route('lendings.destroy', $lending->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">
+                                    {{-- <form action="{{ route('lendings.destroy', $lending->id) }}" method="POST" class="d-inline" onsubmit="return confirm('Yakin hapus data ini?')">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm shadow-sm">Delete</button>
-                                    </form>
+                                    </form> --}}
                                 </td>
                             </tr>
                         @empty

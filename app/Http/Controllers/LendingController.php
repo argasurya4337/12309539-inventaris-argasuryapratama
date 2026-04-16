@@ -41,7 +41,7 @@ class LendingController extends Controller
             'description' => 'nullable|string',
             // 'staff_signature' => 'required',
             // 'borrower_signature' => 'required',
-            'due_date' => 'required|date|after_or_equal:today',
+            // 'due_date' => 'required|date|after_or_equal:today',
         ]);
 
         $itemsRequest = $request->item_id;
@@ -70,7 +70,7 @@ class LendingController extends Controller
                 'description' => $request->description,
                 // 'staff_signature' => $request->staff_signature,
                 // 'borrower_signature' => $request->borrower_signature,
-                'due_date' => $request->due_date,
+                // 'due_date' => $request->due_date,
                 'status' => 'borrowed',
                 'lending_date' => now(),
             ]);
@@ -94,17 +94,17 @@ class LendingController extends Controller
     }
 
     // Menghapus data riwayat peminjaman
-    public function destroy($id)
-    {
-        // 1. Cari data berdasarkan ID
-        $lending = \App\Models\Lending::findOrFail($id);
+    // public function destroy($id)
+    // {
+    //     // 1. Cari data berdasarkan ID
+    //     $lending = \App\Models\Lending::findOrFail($id);
 
-        // 2. Hapus data dari database
-        $lending->delete();
+    //     // 2. Hapus data dari database
+    //     $lending->delete();
 
-        // 3. Kembali ke halaman sebelumnya dengan pesan sukses
-        return redirect()->back()->with('success', 'Success! Data has been deleted.');
-    }
+    //     // 3. Kembali ke halaman sebelumnya dengan pesan sukses
+    //     return redirect()->back()->with('success', 'Success! Data has been deleted.');
+    // }
 
     // Fungsi mengekspor data ke Excel
     public function exportExcel(Request $request)

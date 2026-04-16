@@ -32,7 +32,7 @@
                             <select name="item_id[]" class="form-select" required>
                                 <option value="">Select Items</option>
                                 @foreach($items as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} (Stok: {{ $item->quantity }})</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }} (Stok: {{ $item->quantity - $item->repair - $item->lending }})</option>
                                 @endforeach
                             </select>
                         </div>
@@ -63,12 +63,6 @@
                         cursor: crosshair;
                     }
                 </style>
-
-                <div class="mb-4">
-                    <label class="form-label fw-semibold text-primary">Meminjam Sampai Tanggal (Due Date)</label>
-                    <input type="date" name="due_date" class="form-control" required min="{{ date('Y-m-d') }}">
-                    <small class="text-muted">*Tentukan kapan barang harus dikembalikan.</small>
-                </div>
 
                 <div class="row mb-4">
                 <div>

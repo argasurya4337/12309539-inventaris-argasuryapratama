@@ -16,8 +16,9 @@
                             <th>Category</th>
                             <th class="text-start">Name</th>
                             <th>Total</th>
-                            <th>Available</th>
+                            <th>Repair</th>
                             <th>Lending Total</th>
+                            <th>Available</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,6 +29,10 @@
                                 <td class="text-start fw-semibold text-dark">{{ $item->name }}</td>
                                 
                                 <td>{{ $item->quantity }}</td>
+
+                                <td>{{ $item->repair }}</td>
+                                
+                                <td>{{ $item->lendings_count }}</td>
                                 
                                 <td>
                                     @php
@@ -41,7 +46,6 @@
                                     </span>
                                 </td>
                                 
-                                <td>{{ $item->lendings_count }}</td>
                             </tr>
                         @empty
                             <tr>

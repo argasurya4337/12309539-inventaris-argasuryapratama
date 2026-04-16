@@ -40,7 +40,7 @@ class LendingsExport implements FromCollection, WithHeadings, WithMapping
             'Name',
             'Ket.',
             'Date',
-            'Due Date',
+            // 'Due Date',
             'Return Date',
             'Edited By'
         ];
@@ -64,7 +64,7 @@ class LendingsExport implements FromCollection, WithHeadings, WithMapping
             $lending->borrower_name,
             $lending->description,
             $lending->created_at ? $lending->created_at->format('M d, Y') : '-',
-            \Carbon\Carbon::parse($lending->due_date)->format('d/m/Y'),
+            // \Carbon\Carbon::parse($lending->due_date)->format('d/m/Y'),
             $returnDate,
             $lending->user->name ?? 'staff'
         ];
